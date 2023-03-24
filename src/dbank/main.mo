@@ -3,14 +3,14 @@ import Time "mo:base/Time";
 import Float "mo:base/Float";
 
 actor DBank{
-  stable var currentValue = 300.0;
+  stable var currentValue = 0.0;
   stable var startTime = Time.now();
-  Debug.print(debug_show(startTime));
+
 
   //Allows users to deposit an amount to the currentValue
   public func topUp(amount: Float) {
     currentValue += amount;
-     Debug.print(debug_show(currentValue));
+     //Debug.print(debug_show(currentValue));
   };
 
   //Allows users to withdraw an amount from the currentValue
@@ -39,7 +39,6 @@ actor DBank{
     currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
     startTime := currentTime;
 
-    Debug.print(debug_show(currentValue));
     
   }
 
